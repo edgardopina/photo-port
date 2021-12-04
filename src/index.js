@@ -1,5 +1,7 @@
+//! THIS FILE IS THE MAIN ENTRY POINT FOR THE APPLICATION
+
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'; //* library to render the App component at the root element in the HTML
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
