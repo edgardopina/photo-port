@@ -7,12 +7,14 @@
 import React from 'react'; //* we need to import React in every component file
 // import logo from './logo.svg';
 // import './App.css';
-import About from './components/About/index.js';
+import About from './components/About';
+import Nav from './components/Nav';
 
 //* because we are using webpack (in the background) and React, we can add HTML to Javascript without a string
 function App() {
    return (
       <div>
+         <Nav className=""></Nav>
          <main>
             <About>
             </About>
