@@ -25,10 +25,9 @@ function Nav() {
    }
 
    return (
-      // <header className='flex-row px-1'>
-      <header>
+      <header className='flex-row px-1'>
          <h2>
-            <a href='/'>
+            <a data-testid='link' href='/'>
                <span role='img' aria-label='camera'>
                   📸
                </span>
@@ -38,7 +37,7 @@ function Nav() {
          <nav>
             <ul className='flex-row'>
                <li className='mx-2'>
-                  <a href='#About'>About me</a>
+                  <a data-testid='about' href='#About'>About me</a>
                </li>
                <li>
                   <span>Contact</span>
