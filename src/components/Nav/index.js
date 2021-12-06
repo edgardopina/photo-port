@@ -1,28 +1,17 @@
-import React from 'react';
+//! import React and useEffect to re-render the component
+import React, { useEffect } from 'react';
+import { capitalizeFirstLetter } from '../../utils/helpers';
 
-function Nav() {
-   const categories = [
-      {
-         name: 'commercial',
-         description: 'Photos of grocery stores, food trucks, and other commercial projects',
-      },
-      {
-         name: 'portraits',
-         description: 'Portraits of people in my life',
-      },
-      {
-         name: 'food',
-         description: 'Delicious delicacies',
-      },
-      {
-         name: 'landscape',
-         description: 'Fields, farmhouses, waterfalls, and the beauty of nature',
-      },
-   ];
+function Nav(props) {
+   const { categories = [], setCurrentCategory, currentCategory } = props;
+   console.log(`Nav ~ props`, props);
+   console.log(`Nav ~ currentCategory`, currentCategory);
 
-   function categorySelected(name) {
-      console.log(`${name} clicked`);
-   }
+   //* useEffect 1st parameter - callback function (arrow function)
+   //* useEffect 2nd parameter - component to re-render on changes of the value of the state (currentCategory.name)
+   useEffect(() => {
+      document.title = capitalizeFirstLetter(currentCategory.name);
+   }, [currentCategory]);
 
    return (
       <header className='flex-row px-1'>
@@ -37,14 +26,24 @@ function Nav() {
          <nav>
             <ul className='flex-row'>
                <li className='mx-2'>
-                  <a data-testid='about' href='#About'>About me</a>
+                  <a data-testid='about' href='#About'>
+                     About me
+                  </a>
                </li>
-               <li>
+               <li className='mx-2'>
                   <span>Contact</span>
                </li>
+               {/* this line of code: ${currentCategory.name === category.name && 'navActive'}} */}
+               {/* compares if(currentCategory.name === category.name) and IF it is true returns 'navActive' as part of className */}
                {categories.map(category => (
-                  <li className='mx-1' key={category.name}>
-                     <span onClick={() => categorySelected(category.name)}>{category.name}</span>
+                  <li className={`mx-1 ${currentCategory.name === category.name && 'navActive'}`} key={category.name}>
+                     <span
+                        onClick={() => {
+                           setCurrentCategory(category);
+                        }}
+                     >
+                        {capitalizeFirstLetter(category.name)}
+                     </span>
                   </li>
                ))}
             </ul>
