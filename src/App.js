@@ -14,7 +14,7 @@ import Nav from './components/Nav';
 function App() {
    return (
       <div>
-         <Nav className=""></Nav>
+         <Nav></Nav>
          <main>
             <About>
             </About>

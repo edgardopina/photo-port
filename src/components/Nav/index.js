@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Nav = () => {
+function Nav() {
    const categories = [
       {
          name: 'commercial',
@@ -20,18 +20,18 @@ const Nav = () => {
       },
    ];
 
-   const categorySelected = name => {
+   function categorySelected(name) {
       console.log(`${name} clicked`);
-   };
+   }
 
    return (
+      // <header className='flex-row px-1'>
       <header>
          <h2>
             <a href='/'>
                <span role='img' aria-label='camera'>
-                  {' '}
                   📸
-               </span>{' '}
+               </span>
                Oh Snap!
             </a>
          </h2>
@@ -43,17 +43,15 @@ const Nav = () => {
                <li>
                   <span>Contact</span>
                </li>
-               {categories.map(cat => (
-                  <li className='mx-1' key={cat.name}>
-                     <span onClick={() => categorySelected(cat.name)}>
-                        {cat.name}
-                     </span>
+               {categories.map(category => (
+                  <li className='mx-1' key={category.name}>
+                     <span onClick={() => categorySelected(category.name)}>{category.name}</span>
                   </li>
                ))}
             </ul>
          </nav>
       </header>
    );
-};
+}
 
 export default Nav;
