@@ -4,8 +4,6 @@ import { capitalizeFirstLetter } from '../../utils/helpers';
 
 function Nav(props) {
    const { categories = [], setCurrentCategory, currentCategory } = props;
-   console.log(`Nav ~ props`, props);
-   console.log(`Nav ~ currentCategory`, currentCategory);
 
    //* useEffect 1st parameter - callback function (arrow function)
    //* useEffect 2nd parameter - component to re-render on changes of the value of the state (currentCategory.name)
