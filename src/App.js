@@ -10,6 +10,7 @@ import React, { useState } from 'react'; //* import React and React's state hand
 import Nav from './components/Nav';
 import About from './components/About';
 import Gallery from './components/Gallery';
+import ContactForm from './components/Contact';
 
 //* because we are using webpack (in the background) and React, we can add HTML to Javascript without a string
 function App() {
@@ -45,6 +46,7 @@ function App() {
          <Nav categories={categories} setCurrentCategory={setCurrentCategory} currentCategory={currentCategory}></Nav>
          <main>
             <div>
+               <ContactForm></ContactForm>
                <Gallery currentCategory={currentCategory}></Gallery>
                <About></About>
             </div>
