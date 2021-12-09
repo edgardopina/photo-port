@@ -41,14 +41,29 @@ function App() {
    //* useState(par) : par - sets 'the initial value' of the state
    const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
+   //! React hook to manage the condition to render based on menu item selection
+   const [contactSelected, setContactSelected] = useState(false);
+
    return (
       <div>
-         <Nav categories={categories} setCurrentCategory={setCurrentCategory} currentCategory={currentCategory}></Nav>
+         <Nav
+            categories={categories}
+            setCurrentCategory={setCurrentCategory}
+            currentCategory={currentCategory}
+            contactSelected={contactSelected}
+            setContactSelected={setContactSelected}
+         ></Nav>
          <main>
             <div>
-               <ContactForm></ContactForm>
-               <Gallery currentCategory={currentCategory}></Gallery>
-               <About></About>
+               {/* the following line and the ') : (' line are equivalent to cond ? value1 : value2 */}
+               {!contactSelected ? (
+                  <>
+                     <Gallery currentCategory={currentCategory}></Gallery>
+                     <About></About>
+                  </>
+               ) : (
+                  <ContactForm></ContactForm>
+               )}
             </div>
          </main>
       </div>
