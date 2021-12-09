@@ -53,7 +53,7 @@ function ContactForm() {
       //! 'htmlfor' attribute in the <label> element INSTEAD OF 'for'
       //! 'className' attribute in the html elements INSTEAD OF 'class'
       <section>
-         <h1>Contact me</h1>
+         <h1 data-testid='h1tag'>Contact me</h1>
          <form id='contact-form' onSubmit={handleSubmit}>
             <div>
                <label htmlFor='name'>Name:</label>
@@ -72,7 +72,9 @@ function ContactForm() {
                   <p className='error-text'>{errorMessage}</p>
                </div>
             )}
-            <button type='submit'>Submit</button>
+            <button data-testid='buttontag' type='submit'>
+               Submit
+            </button>
          </form>
       </section>
    );
