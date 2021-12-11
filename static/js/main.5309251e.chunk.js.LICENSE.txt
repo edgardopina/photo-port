@@ -1,0 +1,23 @@
+//! 'className' attribute in the html elements INSTEAD OF 'class'
+
+//! 'htmlfor' attribute in the <label> element INSTEAD OF 'for'
+
+//! MAKE SURE TO INCLUDE THE '.default' in the <img src=''> tag to render the image
+
+//! SYNC THE STATE OF THE COMPONENT 'formState' WITH THE USER INPUTS (eventListener in input fields)
+
+//! THIS FILE IS THE MAIN ENTRY POINT FOR THE APPLICATION
+
+//! Think of App.js as THE ROOT COMPONENT or THE WRAPPER COMPONENT that houses all of the other components.
+
+//! This App.js file is the center of the application.
+
+//! default - THIS PROPERTY IS NEEDED TO INDICATE WHERE THE IMAGE WAS SAVED. To render the image, the default property MUST BE invoked.
+
+//! define React Hook
+
+//! import React and useEffect to re-render the component
+
+//! note that React uses:
+
+//! state to update with the user input if there is no error message
