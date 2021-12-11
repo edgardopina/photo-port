@@ -102,19 +102,18 @@ function PhotoList({ category }) {
 
    //! React hook for modal rendering
    const [currentPhoto, setCurrentPhoto] = useState();
-   
+
    //! React hook to manage if Modal is open or not (INSTEAD OF CHECKING FOR onClick event)
    const [isModalOpen, setIsModalOpen] = useState(false);
-   
+
    //* photos from current category only
    const currentPhotos = photos.filter((photo) => photo.category === category);
-   
+
    const toggleModal = (image, i) => {
       setCurrentPhoto({ ...image, index: i }); //* passes image properties and index i
-      setIsModalOpen(true); //! image was clicked on
-      
+      setIsModalOpen(!isModalOpen); //! toggle isModalOpen
    };
-   
+
    //* alt - used for accessibility user-assistance devices, such as screen readers, so the image's name was assigned.
    //* key - also assigned with the image's name. Its value must be a unique string. The absence of this unique key
    //*       value will cause an error message. Refer to the React documentation on lists and keys.
@@ -124,7 +123,7 @@ function PhotoList({ category }) {
    return (
       <div>
          {/* Modal component render ONLY IF isModelOpen === true (need to check for onClick event on the image) */}
-         {isModalOpen && <Modal currentPhoto={currentPhoto} />}
+         {isModalOpen && <Modal currentPhoto={currentPhoto} onClose={toggleModal} />}
          <div className='flex-row'>
             {currentPhotos.map((image, i) => (
                <img
